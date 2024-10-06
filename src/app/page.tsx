@@ -1,101 +1,97 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Question from "@/app/images/Questions.png";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="mt-10">
+      <div className="w-full flex md:flex-row items-center flex-col justify-between gap-5">
+        <div className="w-full text-center">
+          <motion.h1
+            initial={{ y: -300 }}
+            animate={{ y: 0 }}
+            transition={{
+              delay: 1,
+              duration: 2,
+              stiffness: 200,
+              type: "spring",
+            }}
+            className="text-6xl text-blue-500 font-bold mb-5"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Quiz <br /> Application
+          </motion.h1>
+          <motion.p
+            initial={{ x: -800 }}
+            transition={{
+              delay: 2,
+              duration: 2,
+              type: "spring",
+              stiffness: 200,
+            }}
+            animate={{ x: 0 }}
+            className="text-blue-500 text-lg font-semibold"
           >
-            Read our docs
-          </a>
+            A Dynamic quiz application using Nextjs
+          </motion.p>
+          <Link href={"https://tech-quiz-app-xi.vercel.app/"}>
+            <motion.button
+              initial={{ x: -600 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: 2,
+                delay: 3,
+                stiffness: 150,
+                type: "spring",
+              }}
+              whileHover={{ scale: 1.1 }}
+              className="bg-blue-500 px-24 mt-10 py-5 rounded-full text-white font-bold"
+            >
+              START QUIZ
+            </motion.button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <motion.div className="w-full  flex justify-center">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={Question}
+            width={100}
+            height={100}
+            alt="question"
+            className="w-[50%] mt-10 animate-bounce"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </motion.div>
+      </div>
+      <div className="relative">
+        <motion.p
+          className="font-semibold text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3, duration: 3 }}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          A quiz application is a dynamic and interactive tool designed to
+          facilitate knowledge assessment across various topics. Built using
+          modern web technologies like Next.js, a quiz app allows users to
+          engage in a series of questions, receive feedback, and track their
+          progress. One of the key advantages of such an application is its
+          flexibility to support different question types, including multiple
+          choice, true/false, and open-ended questions. The app can be
+          customized to meet educational, professional, or entertainment needs,
+          making it versatile for users ranging from students to corporate
+          trainers. The app typically features user authentication, allowing for
+          a personalized experience where users can create accounts, take
+          quizzes, and review past performance. It can also include an admin
+          panel for quiz creation and management, giving administrators the
+          ability to update questions, set time limits, and define scoring
+          systems. Modern quiz applications also incorporate real-time analytics
+          and feedback mechanisms, providing insights into a user’s strengths
+          and weaknesses. Additionally, responsive design ensures accessibility
+          across devices, offering a seamless experience on desktops, tablets,
+          and smartphones. In essence, a quiz app is a powerful platform that
+          merges education with technology to create an engaging learning
+          experience.
+        </motion.p>
+      </div>
     </div>
   );
 }
